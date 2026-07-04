@@ -40,3 +40,5 @@ class Sound {
         this.playing = false;
     }
 }
+
+window.Sound = Sound;
