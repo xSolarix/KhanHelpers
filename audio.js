@@ -1,4 +1,4 @@
-
+// sound-engine.js (Save this on GitHub to replace your current audio.js)
 window.p = window.parent || window;
 window.p.__audCtx = window.p.__audCtx || new (window.AudioContext || window.webkitAudioContext)();
 window.ctx = window.p.__audCtx;
