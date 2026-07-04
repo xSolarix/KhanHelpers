@@ -14,10 +14,23 @@ class Sound {
         this.gain.connect(ctx.destination);
     }
     async init() {
-        const bin = atob(this.b64.split(",")[1]);
-        const bytes = Uint8Array.from(bin, c => c.charCodeAt(0));
-        this.buf = await ctx.decodeAudioData(bytes.buffer);
-        this.ready = true;
+        try {
+            // Strip out any hidden spaces, tabs, or newlines that cause atob() to crash
+            const cleanB64 = this.b64.replace(/\s/g, ''); 
+            const bin = atob(cleanB64.split(",")[1]);
+            const len = bin.length;
+            const bytes = new Uint8Array(len);
+            
+            // Fast binary conversion loop (much faster than Uint8Array.from on large audio files)
+            for (let i = 0; i < len; i++) {
+                bytes[i] = bin.charCodeAt(i);
+            }
+            
+            this.buf = await ctx.decodeAudioData(bytes.buffer);
+            this.ready = true;
+        } catch (error) {
+            console.error("Sound Initialization Failed: Check your Base64 string format.", error);
+        }
     }
     play() {
         if (!this.ready || isMuted) return;
