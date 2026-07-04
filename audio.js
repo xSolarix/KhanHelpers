@@ -15,13 +15,11 @@ class Sound {
     }
     async init() {
         try {
-            // Strip out any hidden spaces, tabs, or newlines that cause atob() to crash
             const cleanB64 = this.b64.replace(/\s/g, ''); 
             const bin = atob(cleanB64.split(",")[1]);
             const len = bin.length;
             const bytes = new Uint8Array(len);
             
-            // Fast binary conversion loop (much faster than Uint8Array.from on large audio files)
             for (let i = 0; i < len; i++) {
                 bytes[i] = bin.charCodeAt(i);
             }
