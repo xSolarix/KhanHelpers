@@ -52,3 +52,19 @@ if (!window.Sound) {
         }
     };
 }
+
+/** Usage Demo **/
+/*
+var clickSound = clickSound || new Sound({
+  base64: audioFile,
+  volume: 0.8,
+  loop: false
+});
+
+window.addEventListener("load", async () => {
+    if (!clickSound.ready) {
+        await clickSound.init();
+        console.log("Audio successfully decoded.");
+    }
+});
+*/
