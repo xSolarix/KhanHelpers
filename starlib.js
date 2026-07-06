@@ -85,19 +85,6 @@ class Starlib {
         }
     };
 
-    /**
-     * Initializes Starlib with a default observer configuration.
-     * @param {Object} config
-     * @param {number} config.lat - Observer latitude in degrees (-90 to 90)
-     * @param {number} config.long - Observer longitude in degrees (-180 to 180, East positive)
-     * @param {number} config.yr - Year (4-digit format)
-     * @param {number} config.mo - Month (1 to 12)
-     * @param {number} config.d - Day of the month (1 to 31)
-     * @param {number} config.hr - Hours in 24h format (0 to 23)
-     * @param {number} config.min - Minutes (0 to 59)
-     * @param {number} config.tz - Timezone offset from UTC in decimal hours
-     */
-  
     constructor(config) {
         this.position = {
             lat: config.lat,
