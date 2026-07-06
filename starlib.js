@@ -1,10 +1,10 @@
 /**
  * @fileoverview Starlib - A high-fidelity, lightweight computational astronomy library.
- * This library provides rigorous algorithms to calculate planetary positions, sidereal time,
- * coordinate systems transformations, and observer alt-az coordinates.
+ * This library calculates planetary positions, sidereal time, transforms between coordinate systems, and calculates altitude and azimuth coordinates.
  * 
- * Fits JPL Keplerian elements and rates valid for 1800 AD to 2050 AD.
- * 
+ * Fits JPL Keplerian elements and works between 1800 and 2050 AD.
+ * Feel free to use in your own programs, as long as you credit me.
+ *
  * @author xSolarix
  * @version 2.0.0
  */
