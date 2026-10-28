@@ -1,4 +1,9 @@
-window.p = window.parent || window;
+try {
+    window.p = window.parent || window;
+    const test = window.p.document; 
+} catch (e) {
+    window.p = window;
+}
 window.p.__audCtx = window.p.__audCtx || new (window.AudioContext || window.webkitAudioContext)();
 window.ctx = window.p.__audCtx;
 
